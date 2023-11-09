@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<!-- dashboard strings -->
+
+	<string name="app_name">login</string>
+	<string name="ek_img_content">ExportKit Image</string>
+	<string name="stock_string">STOCK</string>
+	<string name="history_string">HISTORY</string>
+	<string name="kasir_string">KASIR</string>
+</resources>

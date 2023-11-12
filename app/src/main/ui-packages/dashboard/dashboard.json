@@ -5,7 +5,7 @@
     "type": "figma",
     "file": "2x4Wm4RyYAETZrspc0XPSY",
     "node": "179:3",
-    "version": "4526393158",
+    "version": "4529260847",
     "component-id": "051fb97ffd15a534b5a5139bd03260dbec88ac7f"
   },
   "default": "dashboard",
@@ -210,6 +210,7 @@
                 "offset": "358.0"
               }
             },
+            "tap-handler": "$on stock tapped",
             "size-constraints": {
               "width-constraints": {
                 "sizing-mode": "fixed",
@@ -239,6 +240,7 @@
                 "offset": "260.0"
               }
             },
+            "tap-handler": "$on history tapped",
             "size-constraints": {
               "width-constraints": {
                 "sizing-mode": "fixed",
@@ -268,6 +270,7 @@
                 "offset": "462.7475280761719"
               }
             },
+            "tap-handler": "$on kasir tapped",
             "size-constraints": {
               "width-constraints": {
                 "sizing-mode": "fixed",
@@ -573,6 +576,23 @@
           }
         ]
       }
+    }
+  },
+  "parameters": {
+    "on stock tapped": {
+      "data-type": "void-callback",
+      "required": false,
+      "description": ""
+    },
+    "on history tapped": {
+      "data-type": "void-callback",
+      "required": false,
+      "description": ""
+    },
+    "on kasir tapped": {
+      "data-type": "void-callback",
+      "required": false,
+      "description": ""
     }
   },
   "previews": [

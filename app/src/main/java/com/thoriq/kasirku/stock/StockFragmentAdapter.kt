@@ -4,18 +4,21 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.lifecycle.LiveData
 import androidx.recyclerview.widget.RecyclerView
 import com.thoriq.kasirku.R
+import com.thoriq.kasirku.database.ListBarang
 
 
-class StockFragmentAdapter(private val dataSet: Array<String>) :
-    RecyclerView.Adapter<StockFragmentAdapter.ViewHolder>() {
+class StockFragmentAdapter(val listener: RowOnClickListener): RecyclerView.Adapter<StockFragmentAdapter.ViewHolder>() {
 
-    /**
-     * Provide a reference to the type of views that you are using
-     * (custom ViewHolder).
-     */
-    class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+   var barangs = ArrayList<ListBarang>()
+
+    fun setListData(data: ArrayList<ListBarang>){
+        this.barangs = data
+    }
+
+    class ViewHolder(view: View,listener: RowOnClickListener) : RecyclerView.ViewHolder(view) {
         val nama: TextView
         val harga: TextView
         val jumlah: TextView
@@ -25,6 +28,11 @@ class StockFragmentAdapter(private val dataSet: Array<String>) :
             harga = view.findViewById(R.id.hargaBarang)
             jumlah = view.findViewById(R.id.jumlahBarang)
         }
+        fun bind(data: ListBarang){
+            nama.text=data.namaBarang
+            harga.text = data.harga.toString()
+            jumlah.text = data.jumlah.toString()
+        }
     }
 
     // Create new views (invoked by the layout manager)
@@ -33,20 +41,23 @@ class StockFragmentAdapter(private val dataSet: Array<String>) :
         val view = LayoutInflater.from(viewGroup.context)
             .inflate(R.layout.row, viewGroup, false)
 
-        return ViewHolder(view)
+        return ViewHolder(view,listener)
     }
 
     // Replace the contents of a view (invoked by the layout manager)
     override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
-
-        // Get element from your dataset at this position and replace the
-        // contents of the view with that element
-        viewHolder.nama.text = dataSet[position]
-        viewHolder.harga.text = dataSet[position]
-        viewHolder.jumlah.text = dataSet[position]
+        viewHolder.itemView.setOnClickListener{
+            listener.onItemClickListener(barangs[position])
+        }
+        viewHolder.bind(barangs[position])
     }
 
     // Return the size of your dataset (invoked by the layout manager)
-    override fun getItemCount() = dataSet.size
+    override fun getItemCount() = barangs.size
 
+    interface RowOnClickListener{
+        fun onDeleteUserClickListener(barang:ListBarang)
+        fun onItemClickListener(barang:ListBarang)
+    }
 }
+

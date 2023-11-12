@@ -28,12 +28,12 @@ class DashboardFragment : Fragment() {
         binding.stock.setOnClickListener {
             view?.findNavController()?.navigate(R.id.action_dashboardFragment_to_stockFragment)
         }
-        binding.history.setOnClickListener {
-            view?.findNavController()?.navigate(R.id.action_loginFragment_to_dashboardFragment)
-        }
-        binding.kasir.setOnClickListener {
-            view?.findNavController()?.navigate(R.id.action_loginFragment_to_dashboardFragment)
-        }
+//        binding.history.setOnClickListener {
+//            view?.findNavController()?.navigate(R.id.action_dashboardFragment_to_stockFragment)
+//        }
+//        binding.kasir.setOnClickListener {
+//            view?.findNavController()?.navigate(R.id.action_dashboardFragment_to_stockFragment)
+//        }
         return binding.root
     }
 }

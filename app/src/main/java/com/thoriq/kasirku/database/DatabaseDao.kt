@@ -14,7 +14,7 @@ interface DatabaseDao {
     fun insert(list: ListBarang)
 
     @Query("SELECT * FROM table_list_barang")
-    fun getAllBarang(): LiveData<List<ListBarang>>
+    fun getAllBarang(): List<ListBarang>?
 
     @Query("SELECT * FROM table_list_barang WHERE tipe_barang = :tipeBarang ")
     fun get(tipeBarang: String): List<ListBarang>

@@ -50,9 +50,14 @@ class StockFragment : Fragment(),StockFragmentAdapter.RowOnClickListener {
         viewModel =
             ViewModelProvider(
                 this).get(StockFragmentViewModel::class.java)
-            viewModel.getAllBarangObservers().observe(this,Observer{
+        viewModel.getAllBarangObservers().observe(viewLifecycleOwner,Observer{
             recyclerViewAdapter.setListData(ArrayList(it))
             recyclerViewAdapter.notifyDataSetChanged()
+        })
+        binding.simpan.setOnClickListener({
+            val name: String = binding.nama.text.toString()
+            val list = ListBarang(0L,name,"",1,1.0)
+            viewModel.insertBarang(list)
         })
         return binding.root
     }

@@ -8,4 +8,31 @@
     <string name="history">history</string>
     <string name="stock">stock</string>
     <string name="kasir">kasir</string>
+    <string name="title_activity_login2">LoginActivity2</string>
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="welcome">"Welcome !"</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="login_failed">"Login failed"</string>
+    <string name="login">Login</string>
+    <string name="title_activity_main2">MainActivity2</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+    <string name="create">create</string>
+    <string name="file">file</string>
+    <string name="open">open</string>
+    <string name="harga">harga</string>
+    <string name="detail">detail</string>
+    <string name="pilih">pilih</string>
+    <array name="pilihan">
+        <item>detail</item>
+        <item>ubah</item>
+        <item>hapus</item>
+    </array>
 </resources>

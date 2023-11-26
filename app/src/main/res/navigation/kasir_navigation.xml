@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/kasir_navigation"
+    app:startDestination="@id/kasirFragment">
+
+    <fragment
+        android:id="@+id/kasirFragment"
+        android:name="com.thoriq.kasirku.kasir.KasirFragment"
+        android:label="fragment_kasir"
+        tools:layout="@layout/fragment_kasir" />
+</navigation>

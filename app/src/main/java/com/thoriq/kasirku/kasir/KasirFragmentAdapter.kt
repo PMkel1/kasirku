@@ -1,17 +1,21 @@
-package com.thoriq.kasirku.stock
+package com.thoriq.kasirku.kasir
+
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageButton
+import android.widget.ImageView
 import android.widget.TextView
+import androidx.lifecycle.MutableLiveData
 import androidx.recyclerview.widget.RecyclerView
 import com.thoriq.kasirku.R
 import com.thoriq.kasirku.database.listbarang.ListBarang
 
 
-class StockFragmentAdapter(val listener: RowOnClickListener): RecyclerView.Adapter<StockFragmentAdapter.ViewHolder>() {
+class KasirFragmentAdapter(val listener: RowOnClickListener): RecyclerView.Adapter<KasirFragmentAdapter.ViewHolder>() {
 
-   var barangs = ArrayList<ListBarang>()
+    var barangs = ArrayList<ListBarang>()
 
     fun setListData(data: ArrayList<ListBarang>){
         this.barangs = data
@@ -19,18 +23,15 @@ class StockFragmentAdapter(val listener: RowOnClickListener): RecyclerView.Adapt
 
     class ViewHolder(view: View,listener: RowOnClickListener) : RecyclerView.ViewHolder(view) {
         val nama: TextView
-        val harga: TextView
-        val jumlah: TextView
+        val gambar: ImageView
         init {
             // Define click listener for the ViewHolder's View.
-            nama = view.findViewById(R.id.namaBarang)
-            harga = view.findViewById(R.id.hargaBarang)
-            jumlah = view.findViewById(R.id.jumlahBarang)
+            nama = view.findViewById(R.id.namaItem)
+            gambar = view.findViewById(R.id.gambarItem)
         }
         fun bind(data: ListBarang){
             nama.text=data.namaBarang
-            harga.text = data.harga.toString()
-            jumlah.text = data.jumlah.toString()
+            gambar.setImageResource(R.drawable.logo)
         }
     }
 
@@ -38,7 +39,7 @@ class StockFragmentAdapter(val listener: RowOnClickListener): RecyclerView.Adapt
     override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): ViewHolder {
         // Create a new view, which defines the UI of the list item
         val view = LayoutInflater.from(viewGroup.context)
-            .inflate(R.layout.row, viewGroup, false)
+            .inflate(R.layout.kasir_item, viewGroup, false)
 
         return ViewHolder(view,listener)
     }
@@ -55,8 +56,13 @@ class StockFragmentAdapter(val listener: RowOnClickListener): RecyclerView.Adapt
     override fun getItemCount() = barangs.size
 
     interface RowOnClickListener{
-        fun onDeleteUserClickListener(barang: ListBarang)
         fun onItemClickListener(barang: ListBarang)
     }
 }
+data class jumlah(
+
+    var jumlahBarang:MutableLiveData<Int>,
+    var totalHarga:MutableLiveData<Int>,
+
+)
 

@@ -37,6 +37,7 @@ android {
     }
     buildFeatures{
         dataBinding = true
+        viewBinding = true
     }
 }
 
@@ -51,6 +52,8 @@ dependencies {
     implementation("androidx.room:room-ktx:2.6.0")
     implementation("androidx.room:room-runtime:2.6.0")
     implementation("androidx.legacy:legacy-support-v4:1.0.0")
+    implementation("androidx.room:room-common:2.6.0")
+    implementation("androidx.annotation:annotation:1.7.0")
     kapt("androidx.room:room-compiler:2.6.0")
     implementation ("androidx.lifecycle:lifecycle-extensions:2.2.0")
     implementation ("androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.2")

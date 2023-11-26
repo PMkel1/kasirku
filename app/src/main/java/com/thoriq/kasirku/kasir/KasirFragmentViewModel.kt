@@ -1,4 +1,4 @@
-package com.thoriq.kasirku.stock
+package com.thoriq.kasirku.kasir
 
 import android.annotation.SuppressLint
 import android.app.Application
@@ -7,7 +7,7 @@ import androidx.lifecycle.MutableLiveData
 import com.thoriq.kasirku.database.listbarang.ListBarang
 import com.thoriq.kasirku.database.ListDatabase
 
-class StockFragmentViewModel(app:Application) : AndroidViewModel(app) {
+class KasirFragmentViewModel(app:Application) : AndroidViewModel(app) {
     var allBarang: MutableLiveData<List<ListBarang>>
     init {
         allBarang = MutableLiveData()
@@ -24,11 +24,6 @@ class StockFragmentViewModel(app:Application) : AndroidViewModel(app) {
 
         allBarang.postValue(list)
     }
-    fun insertBarang(listBarang: ListBarang){
-        val barangDao = ListDatabase.getInstance((getApplication())).ListDatabaseDao
-        barangDao.insert(listBarang)
-        getAllBarang()
-    }
     private var barang = MutableLiveData<ListBarang?>()
-
+    var harga =  MutableLiveData<Double?>(0.0)
 }

@@ -1,4 +1,4 @@
-package com.thoriq.kasirku.database
+package com.thoriq.kasirku.database.listbarang
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity

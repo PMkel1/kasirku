@@ -1,68 +1,71 @@
-package com.thoriq.kasirku.stock
+package com.thoriq.kasirku.kasir
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.GridLayout.VERTICAL
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.thoriq.kasirku.R
 import com.thoriq.kasirku.database.listbarang.ListBarang
+import com.thoriq.kasirku.databinding.FragmentKasirBinding
 import com.thoriq.kasirku.databinding.FragmentStockBinding
 
 
-class StockFragment : Fragment(),StockFragmentAdapter.RowOnClickListener {
+class KasirFragment : Fragment(),KasirFragmentAdapter.RowOnClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
     }
-    lateinit var viewModel: StockFragmentViewModel
-    lateinit var recyclerViewAdapter: StockFragmentAdapter
+    lateinit var binding: FragmentKasirBinding
+    lateinit var viewModel: KasirFragmentViewModel
+    lateinit var recyclerViewAdapter: KasirFragmentAdapter
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val binding: FragmentStockBinding = DataBindingUtil.inflate(
-            inflater, R.layout.fragment_stock, container, false
-        )
+        binding = FragmentKasirBinding.inflate(layoutInflater)
         val application = requireNotNull(this.activity).application
 
+        val manager = GridLayoutManager(application, 2)
+        manager.spanSizeLookup = object : GridLayoutManager.SpanSizeLookup() {
+            override fun getSpanSize(position: Int) =  when (position) {
+                0->1
+                else -> 1
+            }
+        }
 
         // Create an instance of the ViewModel Factory.
-        binding.sleepList.apply {
-            layoutManager = LinearLayoutManager(application)
-            recyclerViewAdapter = StockFragmentAdapter(this@StockFragment)
+        binding.kasirList.apply {
+            layoutManager = manager
+            recyclerViewAdapter = KasirFragmentAdapter(this@KasirFragment)
             adapter = recyclerViewAdapter
             val divider = DividerItemDecoration(application,VERTICAL)
             addItemDecoration(divider)
         }
         viewModel =
             ViewModelProvider(
-                this).get(StockFragmentViewModel::class.java)
+                this).get(KasirFragmentViewModel::class.java)
         viewModel.getAllBarangObservers().observe(viewLifecycleOwner,Observer{
             recyclerViewAdapter.setListData(ArrayList(it))
             recyclerViewAdapter.notifyDataSetChanged()
         })
         viewModel.getAllBarang()
-        binding.simpan.setOnClickListener {
-            val name: String = binding.nama.text.toString()
-            val list = ListBarang(0L, name, "", 1, 1.0)
-            viewModel.insertBarang(list)
-        }
+        viewModel.harga.observe(viewLifecycleOwner, Observer {
+            binding.harga.text = it.toString()
+        })
         return binding.root
     }
 
-    override fun onDeleteUserClickListener(barang: ListBarang) {
-        TODO("Not yet implemented")
-    }
-
     override fun onItemClickListener(barang: ListBarang) {
-        val dialog = StockDialog(barang)
-        dialog.show(parentFragmentManager,"hehe")
+        viewModel.harga.value?.plus(barang.harga)
+        Toast.makeText(activity,"halo",Toast.LENGTH_SHORT).show()
     }
 }

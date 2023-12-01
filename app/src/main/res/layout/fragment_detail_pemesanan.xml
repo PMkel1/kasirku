@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal"
+        android:padding="10dp"
+        android:layout_margin="8dp"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="140dp">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/nomorPesan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/nomor"
+                android:textSize="20dp" />
+
+            <TextView
+                android:id="@+id/tanggalPesan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/tanggal"
+                android:textSize="20dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/nomor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="end"
+                android:text="@string/nomorAntrian"
+                android:textSize="20dp"/>
+
+            <TextView
+                android:id="@+id/date"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="end"
+                android:text="@string/waktu"
+                android:textSize="20dp" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal"
+        android:padding="10dp"
+        android:layout_margin="8dp"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="270dp">
+
+
+        <Button
+            android:id="@+id/buttonTambah"
+            android:layout_width="30dp"
+            android:padding="1px"
+            android:layout_height="30dp"
+            android:text="@string/tambah"
+            android:textSize="15dp" />
+
+        <TextView
+            android:id="@+id/jumlah"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/harga"
+            android:layout_weight="1"
+            android:textSize="20dp" />
+
+        <Button
+            android:id="@+id/buttonKurang"
+            android:layout_width="30dp"
+            android:padding="1px"
+            android:layout_height="30dp"
+            android:text="@string/kurang"
+            android:textSize="15dp" />
+
+        <TextView
+            android:id="@+id/namaItem"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/username"
+            android:layout_weight="4"
+            android:textSize="20dp" />
+        <TextView
+            android:id="@+id/harga"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/harga"
+            android:layout_weight="2"
+            android:textSize="20dp" />
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:text="Informasi Pesanan"
+        android:textSize="20dp"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="110dp"
+        tools:ignore="MissingConstraints"/>
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:text="Daftar Pesanan"
+        android:textSize="20dp"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="-16dp"
+        tools:layout_editor_absoluteY="240dp" />
+
+    <TextView
+        android:id="@+id/detailPesanan"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="detail pesanan"
+        android:textSize="40dp"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/cetak"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_editor_absoluteY="600dp"
+        app:layout_editor_absoluteX="175dp"
+        android:text="@string/cetak">
+    </Button>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

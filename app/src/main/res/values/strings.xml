@@ -30,6 +30,16 @@
     <string name="harga">harga</string>
     <string name="detail">detail</string>
     <string name="pilih">pilih</string>
+    <string name="nomor">nomor pesanan </string>
+    <string name="nomorAntrian">00000</string>
+    <string name="tanggal">waktu pemesanan</string>
+    <string name="waktu">02:10:40</string>
+    <string name="tambah">+</string>
+    <string name="kurang">-</string>
+    <string name="Tambah">Tambah</string>
+    <string name="namaBarang">Nama Barang</string>
+    <string name="baru">Submit</string>
+    <string name="cetak">Cetak</string>
     <array name="pilihan">
         <item>detail</item>
         <item>ubah</item>

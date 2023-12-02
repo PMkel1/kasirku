@@ -5,12 +5,16 @@ import android.content.DialogInterface
 import android.os.Bundle
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.DialogFragment
+import androidx.navigation.fragment.findNavController
 import com.thoriq.kasirku.R
 import com.thoriq.kasirku.database.listbarang.ListBarang
+import java.nio.file.Files.delete
 
-class StockDialog(barang: ListBarang) : DialogFragment() {
+class StockDialog(barang: ListBarang, delete: StockFragmentViewModel) : DialogFragment() {
+
+    var delete = delete
+    var barang = barang
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
-
         return activity?.let {
             val builder = AlertDialog.Builder(it)
             builder.setTitle(R.string.pilih)
@@ -20,7 +24,8 @@ class StockDialog(barang: ListBarang) : DialogFragment() {
                         // The 'which' argument contains the index position
                         // of the selected item
                         when (which){
-                            0 -> return@OnClickListener
+                            0 -> this.findNavController().navigate(R.id.action_stockFragment_to_detailStockFragment)
+                            2 -> delete.deleteBarang(barang)
                         }
 
                     })

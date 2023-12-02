@@ -30,6 +30,8 @@
     <string name="harga">harga</string>
     <string name="detail">detail</string>
     <string name="pilih">pilih</string>
+    <string name="list_stock">List Stock</string>
+    <string name="_0">0</string>
     <array name="pilihan">
         <item>detail</item>
         <item>ubah</item>

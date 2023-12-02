@@ -12,6 +12,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.thoriq.kasirku.R
+import com.thoriq.kasirku.database.listbarang.DatabaseDao
 import com.thoriq.kasirku.database.listbarang.ListBarang
 import com.thoriq.kasirku.databinding.FragmentStockBinding
 
@@ -21,6 +22,7 @@ class StockFragment : Fragment(),StockFragmentAdapter.RowOnClickListener {
         super.onCreate(savedInstanceState)
 
     }
+    lateinit var databaseDao: DatabaseDao
     lateinit var viewModel: StockFragmentViewModel
     lateinit var recyclerViewAdapter: StockFragmentAdapter
     override fun onCreateView(
@@ -31,8 +33,6 @@ class StockFragment : Fragment(),StockFragmentAdapter.RowOnClickListener {
             inflater, R.layout.fragment_stock, container, false
         )
         val application = requireNotNull(this.activity).application
-
-
         // Create an instance of the ViewModel Factory.
         binding.sleepList.apply {
             layoutManager = LinearLayoutManager(application)
@@ -49,11 +49,10 @@ class StockFragment : Fragment(),StockFragmentAdapter.RowOnClickListener {
             recyclerViewAdapter.notifyDataSetChanged()
         })
         viewModel.getAllBarang()
-        binding.simpan.setOnClickListener {
-            val name: String = binding.nama.text.toString()
-            val list = ListBarang(0L, name, "", 1, 1.0)
-            viewModel.insertBarang(list)
-        }
+        binding.fab.setOnClickListener({
+            viewModel.insertBarang(ListBarang(namaBarang = "heeh", tipeBarang = "teh", harga = 1000.0))
+        })
+
         return binding.root
     }
 
@@ -62,7 +61,7 @@ class StockFragment : Fragment(),StockFragmentAdapter.RowOnClickListener {
     }
 
     override fun onItemClickListener(barang: ListBarang) {
-        val dialog = StockDialog(barang)
+        val dialog = StockDialog(barang,viewModel)
         dialog.show(parentFragmentManager,"hehe")
     }
 }

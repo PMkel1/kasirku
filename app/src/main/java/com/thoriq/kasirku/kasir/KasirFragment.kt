@@ -58,14 +58,15 @@ class KasirFragment : Fragment(),KasirFragmentAdapter.RowOnClickListener {
             recyclerViewAdapter.notifyDataSetChanged()
         })
         viewModel.getAllBarang()
-        viewModel.harga.observe(viewLifecycleOwner, Observer {
+        viewModel.harga.observe(viewLifecycleOwner,{
             binding.harga.text = it.toString()
         })
         return binding.root
     }
 
     override fun onItemClickListener(barang: ListBarang) {
-        viewModel.harga.value?.plus(barang.harga)
-        Toast.makeText(activity,"halo",Toast.LENGTH_SHORT).show()
+        viewModel.tambahHarga(barang)
+        Toast.makeText(activity,viewModel.hargaSementara.toString(),Toast.LENGTH_SHORT).show()
     }
+
 }

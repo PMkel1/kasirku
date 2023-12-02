@@ -6,10 +6,13 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import com.thoriq.kasirku.database.listbarang.ListBarang
 import com.thoriq.kasirku.database.ListDatabase
+import com.thoriq.kasirku.database.listbarang.DatabaseDao
 
 class StockFragmentViewModel(app:Application) : AndroidViewModel(app) {
+    lateinit var databaseDao: DatabaseDao
     var allBarang: MutableLiveData<List<ListBarang>>
     init {
+        databaseDao =  ListDatabase.getInstance((getApplication())).ListDatabaseDao
         allBarang = MutableLiveData()
     }
 
@@ -19,14 +22,16 @@ class StockFragmentViewModel(app:Application) : AndroidViewModel(app) {
 
     @SuppressLint("NullSafeMutableLiveData")
     fun getAllBarang() {
-        val barangDao = ListDatabase.getInstance((getApplication())).ListDatabaseDao
-        val list = barangDao.getAllBarang()
+        val list = databaseDao.getAllBarang()
 
         allBarang.postValue(list)
     }
     fun insertBarang(listBarang: ListBarang){
-        val barangDao = ListDatabase.getInstance((getApplication())).ListDatabaseDao
-        barangDao.insert(listBarang)
+        databaseDao.insert(listBarang)
+        getAllBarang()
+    }
+    fun deleteBarang(listBarang: ListBarang){
+        databaseDao.clear(listBarang.namaBarang)
         getAllBarang()
     }
     private var barang = MutableLiveData<ListBarang?>()

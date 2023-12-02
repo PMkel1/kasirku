@@ -6,12 +6,14 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.thoriq.kasirku.R
+import com.thoriq.kasirku.database.ListDatabase
+import com.thoriq.kasirku.database.listbarang.DatabaseDao
 import com.thoriq.kasirku.database.listbarang.ListBarang
 
 
 class StockFragmentAdapter(val listener: RowOnClickListener): RecyclerView.Adapter<StockFragmentAdapter.ViewHolder>() {
 
-   var barangs = ArrayList<ListBarang>()
+    var barangs = ArrayList<ListBarang>()
 
     fun setListData(data: ArrayList<ListBarang>){
         this.barangs = data

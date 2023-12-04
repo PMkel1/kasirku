@@ -25,6 +25,7 @@ class StockDialog(barang: ListBarang, delete: StockFragmentViewModel) : DialogFr
                         // of the selected item
                         when (which){
                             0 -> this.findNavController().navigate(R.id.action_stockFragment_to_detailStockFragment)
+                            1 -> this.findNavController().navigate(R.id.action_stockFragment_to_stockUbahFragment)
                             2 -> delete.deleteBarang(barang)
                         }
 

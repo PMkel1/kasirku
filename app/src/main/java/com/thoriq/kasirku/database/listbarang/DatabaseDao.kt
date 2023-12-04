@@ -4,6 +4,7 @@ package com.thoriq.kasirku.database.listbarang
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
+import androidx.room.Update
 
 @Dao
 interface DatabaseDao {
@@ -19,4 +20,7 @@ interface DatabaseDao {
 
     @Query("DELETE FROM table_list_barang WHERE nama_barang = :namaBarang")
     fun clear(namaBarang: String)
+
+    @Update
+    fun update(barang: ListBarang)
 }

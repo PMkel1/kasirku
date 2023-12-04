@@ -47,6 +47,9 @@
     <string name="text">text</string>
     <string name="tugas">tugas</string>
     <string name="del">del</string>
+    <string name="Ubah">Ubah</string>
+    <string name="ubah">Ubah</string>
+    <string name="batal">Batal</string>
     <array name="pilihan">
         <item>detail</item>
         <item>ubah</item>

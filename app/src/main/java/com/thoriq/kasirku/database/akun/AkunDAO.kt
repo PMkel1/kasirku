@@ -12,10 +12,14 @@ interface AkunDao {
     fun insert(akun:Akun)
 
     @Query("SELECT * FROM table_akun")
-    fun getAllAkun(): List<Akun>?
+    fun getAllAkun(): MutableList<Akun>?
 
     @Query("SELECT * FROM table_akun WHERE username = :nama ")
     fun getByUsername(nama: String): Akun?
+
+    @Query("SELECT * FROM table_akun WHERE tugas = :tugas ")
+    fun getByTugas(tugas: String): Akun?
+
 
     @Query("DELETE FROM table_akun WHERE username = :namaAkun")
     fun deleteAkun(namaAkun: String)

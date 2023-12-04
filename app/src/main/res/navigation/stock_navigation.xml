@@ -12,10 +12,24 @@
         <action
             android:id="@+id/action_stockFragment_to_detailStockFragment"
             app:destination="@id/detailStockFragment" />
+        <action
+            android:id="@+id/action_stockFragment_to_stockTambahFragment"
+            app:destination="@id/stockTambahFragment" />
     </fragment>
     <fragment
         android:id="@+id/detailStockFragment"
         android:name="com.thoriq.kasirku.DetailStockFragment"
         android:label="fragment_detail_stock"
         tools:layout="@layout/fragment_detail_stock" />
+    <fragment
+        android:id="@+id/stockTambahFragment"
+        android:name="com.thoriq.kasirku.stock.StockTambahFragment"
+        android:label="fragment_stock_tambah"
+        tools:layout="@layout/fragment_stock_tambah" >
+        <action
+            android:id="@+id/action_stockTambahFragment_to_stockFragment"
+            app:destination="@id/stockFragment"
+            app:popUpTo="@id/stockFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
 </navigation>

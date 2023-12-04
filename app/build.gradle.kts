@@ -11,7 +11,7 @@ android {
 
     defaultConfig {
         applicationId = "com.thoriq.kasirku"
-        minSdk = 22
+        minSdk = 24
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"

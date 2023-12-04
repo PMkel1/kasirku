@@ -9,6 +9,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.thoriq.kasirku.R
@@ -50,14 +51,10 @@ class StockFragment : Fragment(),StockFragmentAdapter.RowOnClickListener {
         })
         viewModel.getAllBarang()
         binding.fab.setOnClickListener({
-            viewModel.insertBarang(ListBarang(namaBarang = "heeh", tipeBarang = "teh", harga = 1000.0))
+            this.findNavController().navigate(R.id.action_stockFragment_to_stockTambahFragment)
         })
 
         return binding.root
-    }
-
-    override fun onDeleteUserClickListener(barang: ListBarang) {
-        TODO("Not yet implemented")
     }
 
     override fun onItemClickListener(barang: ListBarang) {

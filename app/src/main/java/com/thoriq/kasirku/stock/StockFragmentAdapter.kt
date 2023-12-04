@@ -1,17 +1,18 @@
 package com.thoriq.kasirku.stock
 
+import android.icu.text.NumberFormat
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.thoriq.kasirku.R
-import com.thoriq.kasirku.database.ListDatabase
-import com.thoriq.kasirku.database.listbarang.DatabaseDao
 import com.thoriq.kasirku.database.listbarang.ListBarang
+import com.thoriq.kasirku.register.RegisterActivity
+import java.util.Locale
 
 
-class StockFragmentAdapter(val listener: RowOnClickListener): RecyclerView.Adapter<StockFragmentAdapter.ViewHolder>() {
+class StockFragmentAdapter(val listener: StockFragment): RecyclerView.Adapter<StockFragmentAdapter.ViewHolder>() {
 
     var barangs = ArrayList<ListBarang>()
 
@@ -23,16 +24,19 @@ class StockFragmentAdapter(val listener: RowOnClickListener): RecyclerView.Adapt
         val nama: TextView
         val harga: TextView
         val jumlah: TextView
+        val tipe: TextView
         init {
             // Define click listener for the ViewHolder's View.
             nama = view.findViewById(R.id.namaBarang)
             harga = view.findViewById(R.id.hargaBarang)
             jumlah = view.findViewById(R.id.jumlahBarang)
+            tipe = view.findViewById(R.id.tipeBarang)
         }
         fun bind(data: ListBarang){
             nama.text=data.namaBarang
-            harga.text = data.harga.toString()
+            harga.text = toCurrencyFormat(data.harga)
             jumlah.text = data.jumlah.toString()
+            tipe.text = data.tipeBarang
         }
     }
 
@@ -57,8 +61,12 @@ class StockFragmentAdapter(val listener: RowOnClickListener): RecyclerView.Adapt
     override fun getItemCount() = barangs.size
 
     interface RowOnClickListener{
-        fun onDeleteUserClickListener(barang: ListBarang)
         fun onItemClickListener(barang: ListBarang)
     }
 }
-
+fun toCurrencyFormat(harga:Double): String {
+    val localeID = Locale("in", "ID")
+    val numberFormat = NumberFormat.getCurrencyInstance(localeID)
+    numberFormat.minimumFractionDigits = 0
+    return numberFormat.format(harga)
+}

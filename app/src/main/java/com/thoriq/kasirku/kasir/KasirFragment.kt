@@ -20,17 +20,13 @@ import com.thoriq.kasirku.databinding.FragmentStockBinding
 
 
 class KasirFragment : Fragment(),KasirFragmentAdapter.RowOnClickListener {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-    }
     lateinit var binding: FragmentKasirBinding
     lateinit var viewModel: KasirFragmentViewModel
     lateinit var recyclerViewAdapter: KasirFragmentAdapter
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FragmentKasirBinding.inflate(layoutInflater)
         val application = requireNotNull(this.activity).application
 

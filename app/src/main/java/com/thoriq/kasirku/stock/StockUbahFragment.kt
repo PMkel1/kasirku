@@ -17,12 +17,7 @@ class StockUbahFragment : Fragment() {
     lateinit var binding: FragmentStokUbahBinding
     lateinit var databaseDao: DatabaseDao
     lateinit var listBarang: ListBarang
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-    }
-
+    lateinit var args: StockUbahFragmentArgs
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -31,7 +26,7 @@ class StockUbahFragment : Fragment() {
         val application = requireNotNull(this.activity).application
         databaseDao = ListDatabase.getInstance(application).ListDatabaseDao
 
-        listBarang = arguments?.getParcelable("barang") ?: ListBarang()
+        listBarang = args.barang
 
         // Menampilkan data barang pada UI
         binding.namaItem.setText(listBarang.namaBarang)
@@ -44,7 +39,7 @@ class StockUbahFragment : Fragment() {
             val harga = binding.hargabarang.text.toString().toDouble()
             val tipe = binding.tipeBarang.text.toString()
 
-            val barang = ListBarang(namaBarang = nama, harga = harga, tipeBarang = tipe)
+            val barang = ListBarang(idBarang = listBarang.idBarang, namaBarang = nama, harga = harga, tipeBarang = tipe)
             databaseDao.update(barang)
             this.findNavController().navigate(R.id.action_stockUbahFragment_to_stockFragment)
         }

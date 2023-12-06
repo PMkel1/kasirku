@@ -50,6 +50,7 @@
     <string name="Ubah">Ubah</string>
     <string name="ubah">Ubah</string>
     <string name="batal">Batal</string>
+    <string name="listbarang">listbarang</string>
     <array name="pilihan">
         <item>detail</item>
         <item>ubah</item>

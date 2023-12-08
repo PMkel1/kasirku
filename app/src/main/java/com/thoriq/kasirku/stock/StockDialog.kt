@@ -11,9 +11,11 @@ import com.thoriq.kasirku.database.listbarang.ListBarang
 
 class StockDialog(var barang: ListBarang, var delete: StockFragmentViewModel) : DialogFragment() {
 
-    var action = StockFragmentDirections.actionStockFragmentToStockUbahFragment(barang)
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         return activity?.let {
+            val bundle = Bundle()
+            bundle.putLong("idBarang", barang.idBarang)
+
             val builder = AlertDialog.Builder(it)
             builder.setTitle(R.string.pilih)
                 .setItems(
@@ -23,7 +25,7 @@ class StockDialog(var barang: ListBarang, var delete: StockFragmentViewModel) : 
                         // of the selected item
                         when (which){
                             0 -> this.findNavController().navigate(R.id.action_stockFragment_to_detailStockFragment)
-                            1 -> this.findNavController().navigate(action)
+                            1 -> this.findNavController().navigate(R.id.action_stockFragment_to_stockUbahFragment,bundle)
                             2 -> delete.deleteBarang(barang)
                         }
 

@@ -16,8 +16,7 @@ class StockUbahFragment : Fragment() {
 
     lateinit var binding: FragmentStokUbahBinding
     lateinit var databaseDao: DatabaseDao
-    lateinit var listBarang: ListBarang
-    lateinit var args: StockUbahFragmentArgs
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -26,8 +25,8 @@ class StockUbahFragment : Fragment() {
         val application = requireNotNull(this.activity).application
         databaseDao = ListDatabase.getInstance(application).ListDatabaseDao
 
-        listBarang = args.barang
-
+        var idBarang = requireArguments().getLong("idBarang")
+        var listBarang = databaseDao.getById(idBarang)
         // Menampilkan data barang pada UI
         binding.namaItem.setText(listBarang.namaBarang)
         binding.hargabarang.setText(listBarang.harga.toString())

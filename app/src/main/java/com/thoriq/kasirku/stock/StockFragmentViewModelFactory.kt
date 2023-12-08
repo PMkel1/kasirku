@@ -1,6 +1,6 @@
 package com.thoriq.kasirku.stock
 
-class StockFragmentViewModelFactory()
+class StockFragmentViewModelFactory
 //    private val dataSource: DatabaseDao,
 //    private val application: Application
 //) : ViewModelProvider.Factory {

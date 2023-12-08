@@ -12,7 +12,7 @@ import com.thoriq.kasirku.kasir.jumlah
 import com.thoriq.kasirku.stock.StockFragmentAdapter
 import com.thoriq.kasirku.stock.toCurrencyFormat
 
-class RegisterActivityAdapter(val listener: RegisterActivityAdapter.RowOnClickListener): RecyclerView.Adapter<RegisterActivityAdapter.ViewHolder>() {
+class RegisterActivityAdapter(val listener: RowOnClickListener): RecyclerView.Adapter<RegisterActivityAdapter.ViewHolder>() {
 
     var barangs = ArrayList<Akun>()
     fun setListData(data: ArrayList<Akun>){

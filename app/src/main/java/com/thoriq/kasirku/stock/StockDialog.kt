@@ -8,14 +8,14 @@ import androidx.fragment.app.DialogFragment
 import androidx.navigation.fragment.findNavController
 import com.thoriq.kasirku.R
 import com.thoriq.kasirku.database.listbarang.ListBarang
-import java.nio.file.Files.delete
 
-class StockDialog(barang: ListBarang, delete: StockFragmentViewModel) : DialogFragment() {
+class StockDialog(var barang: ListBarang, var delete: StockFragmentViewModel) : DialogFragment() {
 
-    var delete = delete
-    var barang = barang
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         return activity?.let {
+            val bundle = Bundle()
+            bundle.putLong("idBarang", barang.idBarang)
+
             val builder = AlertDialog.Builder(it)
             builder.setTitle(R.string.pilih)
                 .setItems(
@@ -25,6 +25,7 @@ class StockDialog(barang: ListBarang, delete: StockFragmentViewModel) : DialogFr
                         // of the selected item
                         when (which){
                             0 -> this.findNavController().navigate(R.id.action_stockFragment_to_detailStockFragment)
+                            1 -> this.findNavController().navigate(R.id.action_stockFragment_to_stockUbahFragment,bundle)
                             2 -> delete.deleteBarang(barang)
                         }
 

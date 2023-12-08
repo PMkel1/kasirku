@@ -19,17 +19,13 @@ import com.thoriq.kasirku.databinding.FragmentStockBinding
 
 
 class StockFragment : Fragment(),StockFragmentAdapter.RowOnClickListener {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-    }
     lateinit var databaseDao: DatabaseDao
     lateinit var viewModel: StockFragmentViewModel
     lateinit var recyclerViewAdapter: StockFragmentAdapter
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         val binding: FragmentStockBinding = DataBindingUtil.inflate(
             inflater, R.layout.fragment_stock, container, false
         )

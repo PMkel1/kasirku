@@ -44,7 +44,11 @@ class LoginActivity : AppCompatActivity() {
                         val intent = Intent(this, KasirActivity::class.java)
                         startActivity(intent)
                         finish()
-                    } else {
+                    }else if(tugas.equals("stock")) {
+                        val intent = Intent(this, StockActivity::class.java)
+                        startActivity(intent)
+                        finish()
+                    }else {
                         Toast.makeText(this, "kesalahan", Toast.LENGTH_SHORT)
                             .show()
                     }

@@ -11,14 +11,14 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@drawable/backgroundstock">
-
+        android:layout_height="match_parent">
         <LinearLayout
+            android:background="@drawable/borderatasbawah"
             android:id="@+id/linearLayout"
             android:layout_width="409dp"
             android:layout_height="528dp"
             android:orientation="vertical"
+            android:padding="10dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -32,17 +32,6 @@
                 tools:listitem="@layout/row" />
         </LinearLayout>
 
-        <TextView
-            android:id="@+id/listStock"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
-            android:text="@string/list_stock"
-            android:textSize="50sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/fab"
             android:layout_width="wrap_content"
@@ -52,12 +41,14 @@
             android:layout_marginTop="20dp"
             android:contentDescription="@string/submit"
             android:src="@drawable/logo"
+            android:backgroundTint="@color/birukasirku"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.954"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 
         <TextView
+            android:textAllCaps="true"
             android:id="@+id/stock"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

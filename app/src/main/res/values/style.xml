@@ -3,5 +3,7 @@
 
 
 <resources>
-
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorAccent">@color/birukasirku</item>
+    </style>
 </resources>

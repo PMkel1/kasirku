@@ -19,6 +19,7 @@ import com.thoriq.kasirku.databinding.FragmentStockBinding
 
 
 class StockFragment : Fragment(),StockFragmentAdapter.RowOnClickListener {
+
     lateinit var databaseDao: DatabaseDao
     lateinit var viewModel: StockFragmentViewModel
     lateinit var recyclerViewAdapter: StockFragmentAdapter

@@ -3,8 +3,9 @@
     <style name="Base.Theme.Kasirku" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+
     </style>
-    8
+
 
     <style name="Theme.Kasirku" parent="Base.Theme.Kasirku" />
 </resources>

@@ -21,7 +21,7 @@
     </fragment>
     <fragment
         android:id="@+id/detailStockFragment"
-        android:name="com.thoriq.kasirku.DetailStockFragment"
+        android:name="com.thoriq.kasirku.stock.StockDetailFragment"
         android:label="fragment_detail_stock"
         tools:layout="@layout/fragment_detail_stock" />
     <fragment

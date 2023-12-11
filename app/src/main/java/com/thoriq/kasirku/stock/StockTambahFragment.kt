@@ -29,7 +29,10 @@ class StockTambahFragment : Fragment() {
 
         binding.buttonTambahItem.setOnClickListener {
             val nama = binding.namaItem.text.toString()
-            val harga = binding.hargabarang.text.toString().toDouble()
+            var harga = binding.hargabarang.text.toString().toDouble()
+            if (harga == null){
+                harga = 0.0
+            }
             val tipe = binding.tipeBarang.text.toString()
             val barang = ListBarang(namaBarang = nama, harga = harga, tipeBarang = tipe)
             databaseDao.insert(barang)

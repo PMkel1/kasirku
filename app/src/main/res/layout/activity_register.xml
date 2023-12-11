@@ -9,8 +9,8 @@
     <LinearLayout
         android:id="@+id/linearLayout4"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/bunder"
+        android:layout_height="400dp"
+        android:background="@drawable/borderatasbawah"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -41,7 +41,8 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/akunList"
             android:layout_width="match_parent"
-            android:layout_height="400dp"
+            android:layout_height="0dp"
+            android:layout_weight="4"
             tools:listitem="@layout/akun_row" />
 
     </LinearLayout>
@@ -52,7 +53,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="@string/register"
-        android:textSize="50dp"
+        android:textSize="50sp"
+        android:textAllCaps="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -113,7 +115,7 @@
     <Spinner
         android:id="@+id/tugasSpinner"
         android:layout_width="211dp"
-        android:layout_height="0dp"
+        android:layout_height="48dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView5" />

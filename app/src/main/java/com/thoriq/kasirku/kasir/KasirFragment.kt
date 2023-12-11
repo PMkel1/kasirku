@@ -1,5 +1,6 @@
 package com.thoriq.kasirku.kasir
 
+import android.icu.text.NumberFormat
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -17,6 +18,7 @@ import com.thoriq.kasirku.R
 import com.thoriq.kasirku.database.listbarang.ListBarang
 import com.thoriq.kasirku.databinding.FragmentKasirBinding
 import com.thoriq.kasirku.databinding.FragmentStockBinding
+import java.util.Locale
 
 
 class KasirFragment : Fragment(),KasirFragmentAdapter.RowOnClickListener {
@@ -55,7 +57,7 @@ class KasirFragment : Fragment(),KasirFragmentAdapter.RowOnClickListener {
         })
         viewModel.getAllBarang()
         viewModel.harga.observe(viewLifecycleOwner,{
-            binding.harga.text = it.toString()
+            binding.harga.text =  toCurrencyFormat(it!!)
         })
         return binding.root
     }
@@ -65,4 +67,10 @@ class KasirFragment : Fragment(),KasirFragmentAdapter.RowOnClickListener {
         Toast.makeText(activity,viewModel.hargaSementara.toString(),Toast.LENGTH_SHORT).show()
     }
 
+    fun toCurrencyFormat(harga:Double): String {
+        val localeID = Locale("in", "ID")
+        val numberFormat = NumberFormat.getCurrencyInstance(localeID)
+        numberFormat.minimumFractionDigits = 0
+        return numberFormat.format(harga)
+    }
 }

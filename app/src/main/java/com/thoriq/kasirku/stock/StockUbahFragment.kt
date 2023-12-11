@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.thoriq.kasirku.R
@@ -35,14 +36,17 @@ class StockUbahFragment : Fragment() {
         binding.buttonUbahItem.setOnClickListener {
             // Retrieve values from UI elements
             val nama = binding.namaItem.text.toString()
-            val harga = binding.hargabarang.text.toString().toDouble()
+            val harga = binding.hargabarang.text.toString()
             val tipe = binding.tipeBarang.text.toString()
-
-            val barang = ListBarang(idBarang = listBarang.idBarang, namaBarang = nama, harga = harga, tipeBarang = tipe)
-            databaseDao.update(barang)
-            this.findNavController().navigate(R.id.action_stockUbahFragment_to_stockFragment)
+            val stock = 0
+            if (nama.equals("") or harga.equals("") or tipe.equals("") ){
+                Toast.makeText(requireContext(),"nama, harga, atau tipe tidak boleh kosong",Toast.LENGTH_SHORT).show()
+            }else{
+                val barang = ListBarang(listBarang.idBarang, nama,tipe,stock, harga.toDouble())
+                databaseDao.update(barang)
+                this.findNavController().navigate(R.id.action_stockUbahFragment_to_stockFragment)
+            }
         }
-
         binding.buttonBatal.setOnClickListener {
             this.findNavController().navigate(R.id.action_stockUbahFragment_to_stockFragment)
         }

@@ -2,12 +2,12 @@
     <string name="app_name">Kasirku</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="username">username</string>
-    <string name="password">password</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
     <string name="submit">Submit</string>
-    <string name="history">history</string>
-    <string name="stock">stock</string>
-    <string name="kasir">kasir</string>
+    <string name="history">History</string>
+    <string name="stock">Stock</string>
+    <string name="kasir">Kasir</string>
     <string name="title_activity_login2">LoginActivity2</string>
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Password</string>
@@ -26,10 +26,10 @@
     <string name="previous">Previous</string>
     <string name="create">create</string>
     <string name="file">file</string>
-    <string name="open">open</string>
-    <string name="harga">harga</string>
-    <string name="detail">detail</string>
-    <string name="pilih">pilih</string>
+    <string name="open">Open</string>
+    <string name="harga">Harga</string>
+    <string name="detail">Detail</string>
+    <string name="pilih">Pilih</string>
     <string name="nomor">nomor pesanan </string>
     <string name="nomorAntrian">00000</string>
     <string name="tanggal">waktu pemesanan</string>
@@ -38,21 +38,22 @@
     <string name="kurang">-</string>
     <string name="Tambah">Tambah</string>
     <string name="namaBarang">Nama Barang</string>
-    <string name="baru">tambah</string>
+    <string name="baru">Tambah</string>
     <string name="cetak">Cetak</string>
     <string name="_0">0</string>
     <string name="list_stock" />
-    <string name="jenis" >jenis</string>
-    <string name="register" >register</string>
-    <string name="text">text</string>
-    <string name="tugas">tugas</string>
-    <string name="del">del</string>
+    <string name="jenis" >Jenis</string>
+    <string name="register" >Register</string>
+    <string name="text">Text</string>
+    <string name="tugas">Tugas</string>
+    <string name="del">Del</string>
     <string name="Ubah">Ubah</string>
     <string name="ubah">Ubah</string>
     <string name="batal">Batal</string>
-    <string name="listbarang">listbarang</string>
-    <string name="barang">barang</string>
+    <string name="listbarang">Listbarang</string>
+    <string name="barang">Barang</string>
     <string name="coming_soon">COMING SOON</string>
+    <string name="kembali">kembali</string>
 
     <array name="pilihan">
         <item>detail</item>

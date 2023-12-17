@@ -39,7 +39,15 @@ class StockFragmentAdapter(val listener: StockFragment): RecyclerView.Adapter<St
             tipe.text = data.tipeBarang
         }
     }
-
+    class header(view: View): RecyclerView.ViewHolder(view){
+        val nama: TextView
+        init {
+            nama = view.findViewById(R.id.namaHeader)
+        }
+        fun bind(data: ListBarang){
+            nama.text=data.tipeBarang
+        }
+    }
     // Create new views (invoked by the layout manager)
     override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): ViewHolder {
         // Create a new view, which defines the UI of the list item

@@ -35,5 +35,7 @@ class RegisterActivityViewmodel(app: Application) : AndroidViewModel(app) {
         akunDAO.deleteAkun(akun.username)
         getAllAkun()
     }
-    private var akun = MutableLiveData<Akun?>()
+    fun getListAkun(username:String): String {
+        return akunDAO.getAkun(username)
+    }
 }

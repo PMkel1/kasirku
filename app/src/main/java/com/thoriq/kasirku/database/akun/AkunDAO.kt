@@ -20,7 +20,9 @@ interface AkunDao {
     @Query("SELECT * FROM table_akun WHERE tugas = :tugas ")
     fun getByTugas(tugas: String): Akun?
 
-
     @Query("DELETE FROM table_akun WHERE username = :namaAkun")
     fun deleteAkun(namaAkun: String)
+
+    @Query("SELECT username FROM table_akun WHERE username = :namaAkun")
+    fun getAkun(namaAkun: String):String
 }

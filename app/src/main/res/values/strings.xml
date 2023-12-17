@@ -52,6 +52,8 @@
     <string name="batal">Batal</string>
     <string name="listbarang">listbarang</string>
     <string name="barang">barang</string>
+    <string name="coming_soon">COMING SOON</string>
+
     <array name="pilihan">
         <item>detail</item>
         <item>ubah</item>

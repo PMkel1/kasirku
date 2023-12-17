@@ -8,6 +8,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.thoriq.kasirku.R
+import com.thoriq.kasirku.cls.dialogKasirku
 import com.thoriq.kasirku.database.ListDatabase
 import com.thoriq.kasirku.database.listbarang.DatabaseDao
 import com.thoriq.kasirku.database.listbarang.ListBarang
@@ -25,7 +26,7 @@ class StockUbahFragment : Fragment() {
         binding = FragmentStokUbahBinding.inflate(inflater, container, false)
         val application = requireNotNull(this.activity).application
         databaseDao = ListDatabase.getInstance(application).ListDatabaseDao
-
+        val dialog = dialogKasirku(requireContext())
         var idBarang = requireArguments().getLong("idBarang")
         var listBarang = databaseDao.getById(idBarang)
         // Menampilkan data barang pada UI
@@ -39,18 +40,21 @@ class StockUbahFragment : Fragment() {
             val harga = binding.hargabarang.text.toString()
             val tipe = binding.tipeBarang.text.toString()
             val stock = 0
-            if (nama.equals("") or harga.equals("") or tipe.equals("") ){
-                Toast.makeText(requireContext(),"nama, harga, atau tipe tidak boleh kosong",Toast.LENGTH_SHORT).show()
-            }else{
-                val barang = ListBarang(listBarang.idBarang, nama,tipe,stock, harga.toDouble())
+            if (nama.isEmpty() or harga.isEmpty() or tipe.isEmpty()) {
+                dialog.dialogWarning("nama, harga, atau tipe tidak boleh kosong")
+            } else if (harga.length < 3) {
+                dialog.dialogWarning("harga minimal 3 digit ")
+            } else if (harga.first().equals('0')) {
+                dialog.dialogWarning("harga tidak boleh dimulai dengan 0")
+            } else {
+                val barang = ListBarang(listBarang.idBarang, nama, tipe, stock, harga.toDouble())
                 databaseDao.update(barang)
                 this.findNavController().navigate(R.id.action_stockUbahFragment_to_stockFragment)
             }
+            binding.buttonBatal.setOnClickListener {
+                this.findNavController().navigate(R.id.action_stockUbahFragment_to_stockFragment)
+            }
         }
-        binding.buttonBatal.setOnClickListener {
-            this.findNavController().navigate(R.id.action_stockUbahFragment_to_stockFragment)
-        }
-
         return binding.root
     }
 }

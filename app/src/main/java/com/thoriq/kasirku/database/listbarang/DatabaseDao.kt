@@ -21,6 +21,8 @@ interface DatabaseDao {
     @Query("SELECT * FROM table_list_barang WHERE idBarang = :idBarang ")
     fun getById(idBarang: Long): ListBarang
 
+    @Query("SELECT nama_barang FROM table_list_barang WHERE nama_barang = :namaBarang")
+    fun getBarang(namaBarang: String):String
 
     @Query("DELETE FROM table_list_barang WHERE nama_barang = :namaBarang")
     fun clear(namaBarang: String)

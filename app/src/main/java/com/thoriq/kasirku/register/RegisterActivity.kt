@@ -13,6 +13,8 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.thoriq.kasirku.R
+import com.thoriq.kasirku.cls.cekclass
+import com.thoriq.kasirku.cls.dialogKasirku
 import com.thoriq.kasirku.database.akun.Akun
 import com.thoriq.kasirku.databinding.ActivityRegisterBinding
 import com.thoriq.kasirku.stock.StockFragmentAdapter
@@ -26,7 +28,7 @@ class RegisterActivity : AppCompatActivity(),RegisterActivityAdapter.RowOnClickL
         super.onCreate(savedInstanceState)
         binding = ActivityRegisterBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
+        val dialog = dialogKasirku(this)
         binding.akunList.apply {
             layoutManager = LinearLayoutManager(application)
             recyclerViewAdapter = RegisterActivityAdapter(this@RegisterActivity )
@@ -54,14 +56,29 @@ class RegisterActivity : AppCompatActivity(),RegisterActivityAdapter.RowOnClickL
             // Apply the adapter to the spinner
             spinner.adapter = adapter
         }
-
+        val cc = cekclass()
         binding.submit.setOnClickListener{
             val username = binding.tambahUsername.text.toString()
             val password = binding.tambahPassword.text.toString()
-            spinner.onItemSelectedListener = this
-            viewModel.insertakun(Akun(username = username, password = password, tugas = spinner.selectedItem.toString()))
-            binding.tambahUsername.text = null
-            binding.tambahPassword.text = null
+            if (username.isEmpty() or password.isEmpty()) {
+                dialog.dialogWarning("username atau password tidak boleh kosong")
+            } else{
+                if (cc.mengandungSimbolRegister(username)){
+                    dialog.dialogWarning("username tidak boleh mengandung simbol")
+                }else if (password.length<6) {
+                    dialog.dialogWarning("password minimal 6 digit")
+                }else {
+                    if (viewModel.getListAkun(username).isEmpty()){
+                        spinner.onItemSelectedListener = this
+                        viewModel.insertakun(Akun(username = username, password = password, tugas = spinner.selectedItem.toString()))
+                        binding.tambahUsername.text = null
+                        binding.tambahPassword.text = null
+                    }else{
+                        dialog.dialogWarning("akun telah tersedia")
+                    }
+                    }
+
+                }
         }
     }
 

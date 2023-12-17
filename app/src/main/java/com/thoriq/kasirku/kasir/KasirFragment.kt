@@ -56,15 +56,14 @@ class KasirFragment : Fragment(),KasirFragmentAdapter.RowOnClickListener {
             recyclerViewAdapter.notifyDataSetChanged()
         })
         viewModel.getAllBarang()
-        viewModel.harga.observe(viewLifecycleOwner,{
-            binding.harga.text =  toCurrencyFormat(it!!)
-        })
+        viewModel.harga.observe(viewLifecycleOwner) {
+            binding.harga.text =toCurrencyFormat(it!!)
+        }
         return binding.root
     }
 
     override fun onItemClickListener(barang: ListBarang) {
         viewModel.tambahHarga(barang)
-        Toast.makeText(activity,viewModel.hargaSementara.toString(),Toast.LENGTH_SHORT).show()
     }
 
     fun toCurrencyFormat(harga:Double): String {

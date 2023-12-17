@@ -35,7 +35,8 @@ class RegisterActivityViewmodel(app: Application) : AndroidViewModel(app) {
         akunDAO.deleteAkun(akun.username)
         getAllAkun()
     }
-    fun getListAkun(username:String): String {
-        return akunDAO.getAkun(username)
+    fun getListAkun(username:String): String? {
+        val barang = akunDAO.getAkun(username)
+        return barang
     }
 }

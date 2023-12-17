@@ -44,7 +44,8 @@ class StockTambahFragment : Fragment() {
                 } else if (harga.first().equals('0')) {
                     dialog.dialogWarning("harga tidak boleh dimulai dengan 0")
                 } else {
-                    if (databaseDao.getBarang(nama).isEmpty()){
+                    val barang = databaseDao.getBarang(nama)
+                    if (barang == null){
                         val barang =
                             ListBarang(namaBarang = nama, harga = harga.toDouble(), tipeBarang = tipe)
                         databaseDao.insert(barang)

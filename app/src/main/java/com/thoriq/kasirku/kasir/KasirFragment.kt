@@ -1,5 +1,6 @@
 package com.thoriq.kasirku.kasir
 
+import android.content.Intent
 import android.icu.text.NumberFormat
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -14,6 +15,8 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.thoriq.kasirku.KasirActivity
+import com.thoriq.kasirku.LoginActivity
 import com.thoriq.kasirku.R
 import com.thoriq.kasirku.database.listbarang.ListBarang
 import com.thoriq.kasirku.databinding.FragmentKasirBinding
@@ -58,6 +61,11 @@ class KasirFragment : Fragment(),KasirFragmentAdapter.RowOnClickListener {
         viewModel.getAllBarang()
         viewModel.harga.observe(viewLifecycleOwner) {
             binding.harga.text =toCurrencyFormat(it!!)
+        }
+        binding.logout.setOnClickListener{
+            val intent = Intent(application, LoginActivity::class.java)
+            startActivity(intent)
+            requireActivity().finish()
         }
         return binding.root
     }

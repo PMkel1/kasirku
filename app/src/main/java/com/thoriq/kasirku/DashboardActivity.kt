@@ -21,5 +21,10 @@ class DashboardActivity : AppCompatActivity() {
         binding.register.setOnClickListener({
             startActivity(Intent(this, RegisterActivity::class.java))
         })
+        binding.logout.setOnClickListener{
+            val intent = Intent(application, LoginActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
     }
 }

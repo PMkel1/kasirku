@@ -54,6 +54,7 @@
     <string name="barang">Barang</string>
     <string name="coming_soon">COMING SOON</string>
     <string name="kembali">kembali</string>
+    <string name="tipe_barang">tipe barang</string>
 
     <array name="pilihan">
         <item>detail</item>

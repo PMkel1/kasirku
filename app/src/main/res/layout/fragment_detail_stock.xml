@@ -22,7 +22,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="@string/Tambah"
+            android:text="@string/detail"
             android:textSize="40dp" />
     </LinearLayout>
 
@@ -46,42 +46,45 @@
             android:layout_width="200dp"
             android:layout_height="200dp"
             android:gravity="center_horizontal" />
-
-        <EditText
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/namaBarang"
+            android:textColor="@color/birukasirku"
+            android:layout_gravity="left" />
+        <TextView
             android:id="@+id/namaItem"
             android:layout_width="300dp"
+            android:textSize="30sp"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="40dp"
-            android:ems="10"
-            android:hint="@string/namaBarang"
-            android:inputType="text"
-            android:minHeight="48dp"
-            android:enabled="false"/>
-
-        <EditText
+            android:layout_gravity="left" />
+        <TextView
+            android:layout_marginTop="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/tipe_barang"
+            android:textColor="@color/birukasirku"
+            android:layout_gravity="left" />
+        <TextView
+            android:textSize="30sp"
             android:id="@+id/tipeBarang"
-            android:enabled="false"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="10dp"
-            android:ems="10"
-            android:hint="@string/jenis"
-            android:inputType="text"
-            android:minHeight="48dp" />
 
-        <EditText
+            android:layout_gravity="left"/>
+        <TextView
+            android:layout_marginTop="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/harga"
+            android:textColor="@color/birukasirku"
+            android:layout_gravity="left" />
+        <TextView
+            android:textSize="30sp"
             android:id="@+id/hargabarang"
-            android:enabled="false"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="10dp"
-            android:ems="10"
-            android:hint="@string/harga"
-            android:inputType="number"
-            android:minHeight="48dp" />
+            android:layout_gravity="left" />
     </LinearLayout>
 
     <Button

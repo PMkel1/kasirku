@@ -1,5 +1,6 @@
 package com.thoriq.kasirku.stock
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -12,6 +13,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.thoriq.kasirku.LoginActivity
 import com.thoriq.kasirku.R
 import com.thoriq.kasirku.database.listbarang.DatabaseDao
 import com.thoriq.kasirku.database.listbarang.ListBarang
@@ -50,6 +52,11 @@ class StockFragment : Fragment(),StockFragmentAdapter.RowOnClickListener {
         binding.fab.setOnClickListener({
             this.findNavController().navigate(R.id.action_stockFragment_to_stockTambahFragment)
         })
+        binding.logout.setOnClickListener{
+            val intent = Intent(application, LoginActivity::class.java)
+            startActivity(intent)
+            requireActivity().finish()
+        }
 
         return binding.root
     }

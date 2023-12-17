@@ -68,7 +68,7 @@ class RegisterActivity : AppCompatActivity(),RegisterActivityAdapter.RowOnClickL
                 }else if (password.length<6) {
                     dialog.dialogWarning("password minimal 6 digit")
                 }else {
-                    if (viewModel.getListAkun(username).isEmpty()){
+                    if (viewModel.getListAkun(username) == null){
                         spinner.onItemSelectedListener = this
                         viewModel.insertakun(Akun(username = username, password = password, tugas = spinner.selectedItem.toString()))
                         binding.tambahUsername.text = null
@@ -76,9 +76,8 @@ class RegisterActivity : AppCompatActivity(),RegisterActivityAdapter.RowOnClickL
                     }else{
                         dialog.dialogWarning("akun telah tersedia")
                     }
-                    }
-
                 }
+            }
         }
     }
 

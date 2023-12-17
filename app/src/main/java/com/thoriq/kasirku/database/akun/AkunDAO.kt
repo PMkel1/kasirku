@@ -24,5 +24,5 @@ interface AkunDao {
     fun deleteAkun(namaAkun: String)
 
     @Query("SELECT username FROM table_akun WHERE username = :namaAkun")
-    fun getAkun(namaAkun: String):String
+    fun getAkun(namaAkun: String):String?
 }

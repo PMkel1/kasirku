@@ -6,73 +6,89 @@
     android:layout_height="match_parent"
     tools:context=".DashboardActivity">
 
-        <ImageView
-            android:id="@+id/imageView2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:src="@drawable/logo"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.051"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:ignore="ContentDescription" />
+    <LinearLayout
+        android:id="@+id/linearLayout6"
+        android:layout_width="404dp"
+        android:layout_height="439dp"
+        android:layout_gravity="center_vertical"
 
-        <LinearLayout
-            android:layout_width="404dp"
-            android:layout_height="439dp"
-            android:layout_marginTop="88dp"
-            android:orientation="vertical"
-            android:layout_gravity="center_vertical"
+        android:layout_marginTop="95dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.454"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView2">
 
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.454"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView2">
+        <Button
+            android:id="@+id/history"
+            android:layout_width="200dp"
+            android:layout_height="75dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="30dp"
+            android:backgroundTint="@color/birukasirku"
+            android:text="@string/history"
+            android:textAllCaps="true"
+            android:textSize="30sp" />
 
-            <Button
-                android:backgroundTint="@color/birukasirku"
-                android:textAllCaps="true"
-                android:id="@+id/history"
-                android:layout_gravity="center_horizontal"
-                android:layout_width="200dp"
-                android:layout_height="75dp"
-                android:textSize="30sp"
-                android:layout_marginTop="30dp"
-                android:text="@string/history" />
+        <Button
+            android:id="@+id/stock"
+            android:layout_width="200dp"
+            android:layout_height="75dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="30dp"
+            android:backgroundTint="@color/birukasirku"
+            android:text="@string/stock"
+            android:textAllCaps="true"
+            android:textSize="30sp" />
 
-            <Button
-                android:textAllCaps="true"
-                android:backgroundTint="@color/birukasirku"
-                android:id="@+id/stock"
-                android:layout_gravity="center_horizontal"
-                android:layout_width="200dp"
-                android:layout_height="75dp"
-                android:textSize="30sp"
-                android:layout_marginTop="30dp"
-                android:text="@string/stock" />
+        <Button
+            android:id="@+id/kasir"
+            android:layout_width="200dp"
+            android:layout_height="75dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="30dp"
+            android:backgroundTint="@color/birukasirku"
+            android:text="@string/kasir"
+            android:textAllCaps="true"
+            android:textSize="30sp" />
 
-            <Button
-                android:textAllCaps="true"
-                android:backgroundTint="@color/birukasirku"
-                android:id="@+id/kasir"
-                android:layout_gravity="center_horizontal"
-                android:layout_width="200dp"
-                android:layout_height="75dp"
-                android:textSize="30sp"
-                android:layout_marginTop="30dp"
-                android:text="@string/kasir" />
+        <Button
+            android:id="@+id/register"
+            android:layout_width="200dp"
+            android:layout_height="75dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="30dp"
+            android:backgroundTint="@color/birukasirku"
+            android:text="@string/register"
+            android:textAllCaps="true"
+            android:textSize="30sp" />
+    </LinearLayout>
 
-            <Button
-                android:textAllCaps="true"
-                android:backgroundTint="@color/birukasirku"
-                android:id="@+id/register"
-                android:layout_gravity="center_horizontal"
-                android:layout_width="200dp"
-                android:layout_height="75dp"
-                android:textSize="30sp"
-                android:layout_marginTop="30dp"
-                android:text="@string/register" />
-        </LinearLayout>
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="424dp"
+        android:layout_height="129dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.538"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/layout_atas" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/logout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end|bottom"
+        android:layout_margin="16dp"
+        android:layout_marginTop="56dp"
+        android:backgroundTint="@color/white"
+        android:contentDescription="@string/submit"
+        android:src="@drawable/logout"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout6"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.954"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.151" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

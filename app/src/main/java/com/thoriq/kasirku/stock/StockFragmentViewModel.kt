@@ -35,5 +35,5 @@ class StockFragmentViewModel(app:Application) : AndroidViewModel(app) {
         getAllBarang()
     }
     private var barang = MutableLiveData<ListBarang?>()
-
+    
 }

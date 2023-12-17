@@ -24,7 +24,7 @@ class StockDialog(var barang: ListBarang, var delete: StockFragmentViewModel) : 
                         // The 'which' argument contains the index position
                         // of the selected item
                         when (which){
-                            0 -> this.findNavController().navigate(R.id.action_stockFragment_to_detailStockFragment)
+                            0 -> this.findNavController().navigate(R.id.action_stockFragment_to_detailStockFragment,bundle)
                             1 -> this.findNavController().navigate(R.id.action_stockFragment_to_stockUbahFragment,bundle)
                             2 -> delete.deleteBarang(barang)
                         }

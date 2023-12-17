@@ -24,6 +24,10 @@ interface DatabaseDao {
     @Query("SELECT nama_barang FROM table_list_barang WHERE nama_barang = :namaBarang")
     fun getBarang(namaBarang: String):String
 
+    @Query("SELECT tipe_barang FROM table_list_barang WHERE tipe_barang = :tipeBarang")
+    fun getTipeBarang(tipeBarang: String):List<String>
+
+
     @Query("DELETE FROM table_list_barang WHERE nama_barang = :namaBarang")
     fun clear(namaBarang: String)
 

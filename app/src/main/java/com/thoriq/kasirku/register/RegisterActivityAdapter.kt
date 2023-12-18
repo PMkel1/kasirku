@@ -8,7 +8,6 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.thoriq.kasirku.R
 import com.thoriq.kasirku.database.akun.Akun
-import com.thoriq.kasirku.kasir.jumlah
 import com.thoriq.kasirku.stock.StockFragmentAdapter
 import com.thoriq.kasirku.stock.toCurrencyFormat
 
